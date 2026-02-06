@@ -19,14 +19,14 @@ class Runner:
         self.experience_level = experience_level  # beginner/intermediate/expert
         self.weekly_mileage = weekly_mileage    # distance they run now per week
 
-###### **TRAINING GOAL - RACE**
+TRAINING GOAL - RACE
 
 class TrainingGoal:
     def __init__(self, distance_km, duration_weeks):
         self.distance_km = distance_km
         self.duration_weeks = duration_weeks
 
-###### **WORKOUT**
+WORKOUT
 
 class Workout:
     def __init__(self, workout_type, distance, intensity):
@@ -34,18 +34,19 @@ class Workout:
         self.distance = distance
         self.intensity = intensity
 
-###### **TRAINING PLAN**
+TRAINING PLAN
 
 class TrainingPlan:
     def __init__(self):
         self.schedule = {}  # {week: {day: Workout}}
 
-###### **PLAN GENERATOR**
+PLAN GENERATOR
+
 class PlanGenerator:
     def generate_plan(self, runner, goal):
         pass
 
-###### **TRAINING PROGRAM**
+TRAINING PROGRAM
 
 class TrainingProgram:
     def run(self):
