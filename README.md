@@ -11,8 +11,9 @@ Customized training plans for runnners over various distances (5k,10k, Half Mara
 
 
 ###### **RUNNER**
+```python
 
-class Runner:
+class Runner: 
     def __init__(self, name, experience_level, weekly_mileage=0):
         self.name = name
         self.experience_level = experience_level  # beginner/intermediate/expert
