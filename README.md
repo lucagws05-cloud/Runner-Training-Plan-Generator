@@ -58,3 +58,8 @@ class TrainingProgram:
 Runner ──┐
          ├──> PlanGenerator ───> TrainingPlan ───> Workout
 Goal  ───┘
+
+
+
+
+
