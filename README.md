@@ -31,6 +31,9 @@ class Runner:
         self.experience_level = experience_level  # beginner/intermediate/expert
         self.weekly_mileage = weekly_mileage    # distance they run now per week
 
+    def get_info(self):
+        return f"Name: {self.name}, Experience level: {self.experience_level, Current weekly mileage: {weekly_mileage}"
+
 TRAINING GOAL - RACE
 
 class TrainingGoal:
