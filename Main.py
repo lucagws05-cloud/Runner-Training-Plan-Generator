@@ -8,7 +8,4 @@ import PLAN GENERATOR.py
 
 
 
-
-
-
-git pull
+print("niguek")
