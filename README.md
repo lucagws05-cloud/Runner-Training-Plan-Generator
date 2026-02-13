@@ -17,10 +17,7 @@ It is made to make running be fun, while improving. The problem is that usually 
 For runners to be able to track their running. Help runners of different experience levels achieve their specific race goals in a structured and safe way.
 
 Credits
-Zelie Leboucq
-Lou Negra Smit
-Laurence Pobst
-Luca Scanlon
+
 
 ```python
 RUNNER
