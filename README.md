@@ -16,6 +16,14 @@ It is made to make running be fun, while improving. The problem is that usually 
 
 For runners to be able to track their running. Help runners of different experience levels achieve their specific race goals in a structured and safe way.
 
+# Installation Instructions:
+# Clone the Repository
+git clone https://github.com/yourusername/Runner-Training-Plan-Generator.git
+# Navigate into the Folder
+cd Runner-Training-Plan-Generator
+# Run the Program
+python main.py
+
 Credits
 
 
