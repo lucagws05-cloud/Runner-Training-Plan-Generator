@@ -22,16 +22,16 @@ A distinct challenge we faced was that no group members had any previous coding 
     - Pip
     
 # Check your Python Version
-python --version
+    - python --version
 
 
 # Installation Instructions:
 # Clone the Repository
-git clone https://github.com/yourusername/Runner-Training-Plan-Generator.git
+    - git clone https://github.com/yourusername/Runner-Training-Plan-Generator.git
 # Navigate into the Folder
-cd Runner-Training-Plan-Generator
+    - cd Runner-Training-Plan-Generator
 # Run the Program
-python main.py
+    - python main.py
 
 Credits
 
