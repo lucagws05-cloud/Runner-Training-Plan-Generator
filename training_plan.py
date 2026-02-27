@@ -64,7 +64,7 @@ class TrainingPlan:
     def pretty_print(self) -> None:
         print(self.runner.get_info())
         print(
-            f"Goal race: {self.goal.race_type} ({self.goal.distance_km} km), "
+            f"Goal race: {self.goal.race_type} ({self.goal.distance_km} km),"
             f"{self.goal.duration_weeks} weeks"
         )
         print(f"Realistic? {'Yes' if self.goal.is_realistic() else 'Maybe not'}")

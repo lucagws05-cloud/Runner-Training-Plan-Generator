@@ -1,25 +1,16 @@
-from typing import Optional
-
-
 class Workout:
-    VALID_TYPES = {"easy", "tempo", "long", "interval", "rest"}
-    VALID_INTENSITIES = {"low", "moderate", "high"}
+    Valid_Types = {"easy", "tempo", "long", "interval", "rest"}
+    Valid_Intensities = {"low", "moderate", "high"}
 
-    def __init__(
-        self,
-        workout_type: str,
-        distance_km: float = 0.0,
-        pace_min_per_km: Optional[float] = None,
-        intensity: str = "low",
-    ):
-        workout_type = workout_type.lower().strip()
+    def __init__(self, workout_type: str, distance_km: float = 0.0, pace_min_per_km: Optional[float] = None, intensity: str = "low",):
+        workout_type = workout_type.lower().strip()         # Ensuring that the workout type and intensity are valid and not affected by capitalization or extra spaces
         intensity = intensity.lower().strip()
 
-        if workout_type not in self.VALID_TYPES:
-            raise ValueError(f"workout_type must be one of {sorted(self.VALID_TYPES)}")
+        if workout_type not in self.Valid_Types:
+            raise ValueError(f"workout_type must be one of {sorted(self.Valid_Types)}")
 
-        if intensity not in self.VALID_INTENSITIES:
-            raise ValueError(f"intensity must be one of {sorted(self.VALID_INTENSITIES)}")
+        if intensity not in self.Valid_Intensities:
+            raise ValueError(f"intensity must be one of {sorted(self.Valid_Intensities)}")
 
         if distance_km < 0:
             raise ValueError("distance_km cannot be negative")
