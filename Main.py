@@ -1,10 +1,9 @@
 import README.md
 import RUNNER.py
-import TRAINING GOAL - RACE.py
-import WORKOUT.py 
-import TRAINING PLAN.py
-import TRAINING PROGRAM.py
-import PLAN GENERATOR.py
+import training_goal_race.py 
+import training_plan.py
+import WEEK.py
+import WORKOUT.py
 
 
 
