@@ -1,5 +1,5 @@
 from typing import List
-from workout import Workout
+from WORKOUT import Workout
 
 
 class Week:

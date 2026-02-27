@@ -1,3 +1,5 @@
+from typing import Optional
+
 class Workout:
     Valid_Types = {"easy", "tempo", "long", "interval", "rest"}     #types of workouts included
     Valid_Intensities = {"low", "moderate", "high"}                 #intensity levels included
