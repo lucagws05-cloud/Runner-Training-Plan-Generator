@@ -14,5 +14,4 @@ class Week:
     def total_mileage(self) -> float:
         return round(sum(w.distance_km for w in self.workouts), 1)
 
-    def total_load(self) -> float:
-        return round(sum(w.training_load() for w in self.workouts), 2)
+ 
