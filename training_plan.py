@@ -1,8 +1,8 @@
 from typing import List
-from runner import Runner
+from RUNNER import Runner
 from training_goal_race import TrainingGoal
-from week import Week
-from workout import Workout
+from WEEK import Week
+from WORKOUT import Workout
 
 class TrainingPlan:
     def __init__(self, runner: Runner, goal: TrainingGoal):
@@ -62,21 +62,20 @@ class TrainingPlan:
         week.add_workout(Workout("rest"))
 
     def pretty_print(self) -> None:
-        print(self.runner.get_info())
+        print(self.runner.get_info())               #prints out the runner's info and their goal (Idea for this section came from ChatGPT)
         print(
-            f"Goal race: {self.goal.race_type} ({self.goal.distance_km} km),"
+            f"Goal race: {self.goal.race_type} ({self.goal.distance_km} km),"           #prints race type, distance and training duration
             f"{self.goal.duration_weeks} weeks"
         )
-        print(f"Realistic? {'Yes' if self.goal.is_realistic() else 'Maybe not'}")
+        print(f"Realistic? {'Yes' if self.goal.is_realistic() else 'Maybe not'}")       #Based on the entered goal, gives feedback on whether the training duration is long enough for their goal
         print()
 
-        for week in self.weeks:
+        for week in self.weeks:                                 #prints out the training plan, looping through each week and printing the workouts for each day of the week, then adds a space to seperate it from the next week
             print(
                 f"Week {week.week_number} "
-                f"(target {week.target_mileage_km:.1f} km, actual {week.total_mileage():.1f} km)"
+                f"(Target mileage: {week.target_mileage_km} km)"
             )
             for i, w in enumerate(week.workouts, start=1):
                 print(f"  Day {i}: {w}")
-            print(f"  Weekly load: {week.total_load():.2f}")
             print("-" * 40)
 
