@@ -1,30 +1,30 @@
-TRAINING GOAL - RACE
-
 class TrainingGoal:
-    def __init__(self, distance_km, duration_weeks):
-        self.distance_km = distance_km
-        self.duration_weeks = duration_weeks
-
-    def is_realistic(self):
-        if self.race_type == "5k":
-            return self.duration_weeks >= 6
-        elif self.race_type == "10k":
-            return self.duration_weeks >= 8
-        elif self.race_type == "half":
-            return self.duration_weeks >= 12
-        elif self.race_type == "full":
-            return self.duration_weeks >= 16
-        else:
-            return False
+   RACE_DISTANCES_KM = {    # Race lengths that we support
+       "5k": 5.0,
+       "10k": 10.0,
+       "half": 21.1,
+       "full": 42.2,
+   }
 
 
-    race = input("Choose your race (5k, 10k, half, full): ")
-weeks = int(input("How many weeks until race day? "))
+   MIN_WEEKS = {           # Minimum weeks needed to train for each race
+       "5k": 6,
+       "10k": 8,
+       "half": 12,
+       "full": 16,}
 
-goal = TrainingGoal(race, weeks)
 
-if goal.is_realistic():
-    print("Your goal is realistic 👍")
-else:
-    print("This goal may not be realistic. Consider more preparation time.")
+   def __init__(self, race_type: str, duration_weeks: int):   #generally ensuring they put valid input (Idea for this section came from ChatGPT)
+       race_type = race_type.lower().strip()                  #preventing typos through capitalization and spaces       
+       if race_type not in self.RACE_DISTANCES_KM:
+           raise ValueError(f"race_type must be one of {list(self.RACE_DISTANCES_KM.keys())}")
+       if duration_weeks <= 0:
+           raise ValueError("duration_weeks must be positive")
 
+
+       self.distance_km = self.RACE_DISTANCES_KM[race_type]
+       self.duration_weeks = int(duration_weeks)
+
+
+   def is_realistic(self) -> bool:         #checks if the training duration is long enough for their goal
+       return self.duration_weeks >= self.MIN_WEEKS[self.race_type]
