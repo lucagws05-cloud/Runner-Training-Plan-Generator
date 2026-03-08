@@ -1,37 +1,102 @@
 # Runner-Training-Plan-Generator
-Customized training plans for runnners over various distances (5k,10k, Half Marathon, Marathon)
+Customized training plans for runners over various distances (5k,10k, Half Marathon, Marathon)
 
-Couch Is Lava: Running Training Plan Generator
+## Description
 
-This is a program which generates customized running plans for users, based on their own personal goals. Users will be able to choose what race/races they want to train for (5 km, 10 km, half marathon, marathon), and after inputting their name, current experience level and mileage, and the number of weeks remaining before the race, the app will generate a running plan customised to their assessed needs.
-The goal of this project is to create personalized training plans that are accessible and adapted to everyone’s routine.
-
-This project came about as all group members are avid runners and preparing for a half-marathon happening later in the year, however faced a distinct lack of options when it came to finding running plans to follow. All present options were either of not sufficient quality, or behind a paywall. Realizing that other runners would likely be facing similar issues, we were motivated to create a program which would generate followable plans based on the personal needs of each user.
-
-Several limitations should be taken into account. This program is based on general running principles so the medical condition of each individual is not taken into consideration. Additionally, each user's time availability will not be taken into account; if they can't run on a certain day for whatever reason, we cannot take that into account.
-
-A distinct challenge we faced was that no group members had any previous coding experience; we would have to learn python in a very short time frame. Aside from the clear problem that a lack of coding knowledge presents, this also meant it was hard for us to determine the scope of our project, and whether it would be possible to actually create what we hoped to in the time frame we were working with. With no knowledge of coding, we had no sense of what was reasonable or not. Additionally, trying to learn python focusing on object-oriented programming, in such a short time frame meant that we were essentially learning starting from the middle, rather than the beginning.
+This is a program which generates customized running plans for users, based on their own personal goals. Users will be able to choose what race/races they want to train for (5 km, 10 km, half marathon, marathon), and after inputting their name, current experience level and mileage, and the number of weeks remaining before the race, the program will generate a running plan customised to their assessed needs.
 
 # Features
-    - Generates personal week-by week running plans
-    - Ensures appropriate training load, and prevents overloading
-    - Built using object oriented programming design
+  Generates personal week-by week running plans
+  Ensures appropriate training load, and prevents overloading
+  Customisable based on different experience levels and race distance
+  Day by day workouts with distance and pace specified
 
-# Prerequisites
-    - Python 3.10 or higher
-    - Pip
-    
-# Check your Python Version
-    - python --version
+#Installation
+##Prerequisites
+Python 3.10 or higher
+Pip
 
+##Check Python Version
+```bsh
+python --version
 
-# Installation Instructions:
-# Clone the Repository
-    - git clone https://github.com/yourusername/Runner-Training-Plan-Generator.git
-# Navigate into the Folder
-    - cd Runner-Training-Plan-Generator
-# Run the Program
-    - python main.py
+##Set up
 
-# Credits
-    ChatGPT --> debugging purposes, syntax errors and idea generation (mentioned)
+1.) Clone the Repository
+
+```bsh
+git clone https://github.com/yourusername/Runner-Training-Plan-Generator.git cd Runner-Training-Plan-Generator
+
+2.) Set up a Virtual Environment
+
+Windows
+```bsh
+python -m venv venv venv\Scripts\activate
+
+MacOS/Linux
+```bsh
+python3 -m venv venv source venv/bin/activate
+
+3.) Run the Program
+```bsh
+Python main.py
+
+##Example Workflow
+Input experience, race distance and mileage
+Inputs are ran to program in main.py
+Customised plan is generated
+
+##Example Outputs
+<put screenshots of example plans here>
+
+#Project Structure
+
+Runner-Training-Plan-Generator/
+│
+├── README.md    
+├── main.py                            # Entry point of the program
+├── RUNNER.py                    # Logic for generating the training plan
+├── training_goal_race.py      # Runner data model and attributes
+├── training_plan.py               #
+├── WEEK.py                         #
+└──WORKOUT.py                  #
+       
+#Contributing Guidelines
+To contribute:
+
+Fork the repository and create a feature branch
+Follow PEP8 style guidelines with any edits made
+Ensure new code runs without errors
+Submit a pull request with a clear description
+
+#Licensing
+
+## License
+
+This project was developed as part of an academic assignment.
+
+Copyright (c) 2026 Luca Gws
+
+This software is provided for educational and academic purposes only.
+You may view, study, and modify the source code for learning purposes.
+
+Commercial use, redistribution, or use of this code in submitted academic
+work without proper attribution is not permitted.
+
+The software is provided "as is", without warranty of any kind.
+
+#Contact Information
+
+##How to Contact for Questions or Feedback:
+
+Open a GitHub Issue
+Contact contributors through university emails provided below
+
+Laurence Pobst - l.pobst@student.maastrichtuniversity.nl
+Lou Negras - l.negras@student.maastrichtuniversity.nl
+Luca Scanlon - l.scanlon@student.maastrichtuniversity.nl
+Zélie Leboucq - z.leboucq@student.maastrichtuniversity.nl
+
+##Additional Credits
+    ChatGPT - debugging purposes, syntax errors and idea generation (mentioned)
+
