@@ -54,14 +54,13 @@ def get_non_negative_float(prompt: str) -> float:
         print("Please enter a number 0 or higher.")
 
 
-# Main program
+
 race = get_race_choice()
 name = input("Runner name: ").strip()
 exp = get_experience_choice()
 mileage = get_non_negative_float("Current weekly mileage in km (enter 0 if unknown): ")
 
-# Correct Runner creation using the factory function
-# Create a Runner instance based on experience level
+
 if exp == "beginner":
     runner = BeginnerRunner(name, mileage)
 elif exp == "intermediate":
