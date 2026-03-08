@@ -11,45 +11,49 @@ This is a program which generates customized running plans for users, based on t
   Customisable based on different experience levels and race distance
   Day by day workouts with distance and pace specified
 
-#Installation
-##Prerequisites
+# Installation
+## Prerequisites
 Python 3.10 or higher
 Pip
 
-##Check Python Version
+## Check Python Version
 ```bsh
 python --version
-
-##Set up
+```
+## Set up
 
 1.) Clone the Repository
 
 ```bsh
 git clone https://github.com/yourusername/Runner-Training-Plan-Generator.git cd Runner-Training-Plan-Generator
+```bsh
 
 2.) Set up a Virtual Environment
 
 Windows
 ```bsh
 python -m venv venv venv\Scripts\activate
+```
 
 MacOS/Linux
 ```bsh
 python3 -m venv venv source venv/bin/activate
+```
 
 3.) Run the Program
 ```bsh
 Python main.py
+```
 
-##Example Workflow
+## Example Workflow
 Input experience, race distance and mileage
 Inputs are ran to program in main.py
 Customised plan is generated
 
-##Example Outputs
+## Example Outputs
 <put screenshots of example plans here>
 
-#Project Structure
+# Project Structure
 
 Runner-Training-Plan-Generator/
 │
@@ -61,7 +65,7 @@ Runner-Training-Plan-Generator/
 ├── WEEK.py                         #
 └──WORKOUT.py                  #
        
-#Contributing Guidelines
+# Contributing Guidelines
 To contribute:
 
 Fork the repository and create a feature branch
@@ -69,9 +73,9 @@ Follow PEP8 style guidelines with any edits made
 Ensure new code runs without errors
 Submit a pull request with a clear description
 
-#Licensing
+# Licensing
 
-## License
+##  License
 
 This project was developed as part of an academic assignment.
 
@@ -85,9 +89,9 @@ work without proper attribution is not permitted.
 
 The software is provided "as is", without warranty of any kind.
 
-#Contact Information
+# Contact Information
 
-##How to Contact for Questions or Feedback:
+## How to Contact for Questions or Feedback:
 
 Open a GitHub Issue
 Contact contributors through university emails provided below
@@ -97,6 +101,6 @@ Lou Negras - l.negras@student.maastrichtuniversity.nl
 Luca Scanlon - l.scanlon@student.maastrichtuniversity.nl
 Zélie Leboucq - z.leboucq@student.maastrichtuniversity.nl
 
-##Additional Credits
+## Additional Credits
     ChatGPT - debugging purposes, syntax errors and idea generation (mentioned)
 
