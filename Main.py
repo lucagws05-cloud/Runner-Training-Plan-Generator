@@ -1,6 +1,7 @@
 from RUNNER import BeginnerRunner, ExpertRunner, IntermediateRunner, Runner    
 from training_goal_race import TrainingGoal
 from training_plan import TrainingPlan
+from visualization import plot_weekly_mileage
 
 
 def get_race_choice() -> str:
@@ -53,8 +54,6 @@ def get_non_negative_float(prompt: str) -> float:
             pass
         print("Please enter a number 0 or higher.")
 
-
-
 race = get_race_choice()
 name = input("Runner name: ").strip()
 exp = get_experience_choice()
@@ -69,8 +68,13 @@ else:  # expert
     runner = ExpertRunner(name, mileage)
 
 weeks = get_positive_int("Number of weeks for training plan: ")
-goal = TrainingGoal(race, weeks)
+goal_time = get_positive_int("Goal race time in minutes: ")
+
+goal = TrainingGoal(race, weeks, goal_time)
 
 plan = TrainingPlan(runner, goal)
 plan.generate()
 plan.pretty_print()
+plot_weekly_mileage(plan)
+
+plot_weekly_mileage(plan)
