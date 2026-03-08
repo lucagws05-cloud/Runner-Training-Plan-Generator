@@ -23,15 +23,14 @@ class TrainingPlan:
     def weeks(self) -> List[Week]:
         return self._weeks
 
-
     def generate(self) -> None:
         self.weeks.clear()
         start_mileage = self._starting_mileage()
 
         for wk in range(1, self.goal.duration_weeks + 1):
-            mileage = start_mileage * (1 + 0.05 * (wk - 1))  # +5% in mileage per week
+            mileage = start_mileage * (1 + 0.05 * (wk - 1))
 
-            if wk >= self.goal.duration_weeks - 1:  # taper mileage over the last 2 weeks
+            if wk >= self.goal.duration_weeks - 1:
                 mileage *= 0.7
 
             week = Week(wk, round(mileage, 1))
@@ -65,30 +64,35 @@ class TrainingPlan:
         quality_km = round(mileage * 0.20, 1)
         easy_km_total = round(mileage - long_km - quality_km, 1)
 
-        easy1 = round(easy_km_total, 1)
+        easy1 = round(easy_km_total / 2, 1)
+        easy2 = round(easy_km_total - easy1, 1)
 
         week.add_workout(Workout("easy", easy1, paces["easy"], "low"))
         week.add_workout(Workout(quality_type, quality_km, paces[quality_type], "high"))
         week.add_workout(Workout("rest"))
-        week.add_workout(Workout("easy", easy1, paces["easy"], "low"))
+        week.add_workout(Workout("easy", easy2, paces["easy"], "low"))
         week.add_workout(Workout("rest"))
         week.add_workout(Workout("long", long_km, paces["long"], "moderate"))
         week.add_workout(Workout("rest"))
 
-    def pretty_print(self) -> None:
-        print(self.runner.get_info())
-        print(
-            f"Goal race: {self.goal.race_type} ({self.goal.distance_km} km),"
-            f" {self.goal.duration_weeks} weeks"
+    def pretty_print(self) -> str:
+        output = []
+
+        output.append(self.runner.get_info())
+        output.append(
+            f"Goal race: {self.goal.race_type} ({self.goal.distance_km} km), "
+            f"{self.goal.duration_weeks} weeks"
         )
-        print(f"Realistic? {'Yes' if self.goal.is_realistic() else 'Maybe not'}")
-        print()
+        output.append(f"Realistic? {'Yes' if self.goal.is_realistic() else 'Maybe not'}")
+        output.append("")
 
         for week in self.weeks:
-            print(
+            output.append(
                 f"Week {week.week_number} "
                 f"(Target mileage: {week.target_mileage_km} km)"
             )
             for i, w in enumerate(week.workouts, start=1):
-                print(f"  Day {i}: {w}")
-            print("-" * 40)
+                output.append(f"  Day {i}: {w}")
+            output.append("-" * 40)
+
+        return "\n".join(output)
