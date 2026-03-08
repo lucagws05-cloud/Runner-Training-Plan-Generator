@@ -1,12 +1,12 @@
-# Corrected imports: you only import Python modules, not .py filenames literally
-from RUNNER import Runner
+from RUNNER import BeginnerRunner, ExpertRunner, IntermediateRunner, Runner    
 from training_goal_race import TrainingGoal
 from training_plan import TrainingPlan
 
-def get_race_choice() -> str:     # asking the user to choose which race they want to run
-    race_options = {"1": "5k", "2": "10k", "3": "half", "4": "full"}  # associating numbers to distances 
 
-    while True:  # loop until a valid choice is made
+def get_race_choice() -> str:
+    race_options = {"1": "5k", "2": "10k", "3": "half", "4": "full"}
+
+    while True:
         print("\nSelect your race:")
         print("1. 5K")
         print("2. 10K")
@@ -17,10 +17,11 @@ def get_race_choice() -> str:     # asking the user to choose which race they wa
             return race_options[choice]
         print("Invalid selection. Please choose 1–4.")
 
-def get_experience_choice() -> str:  # asking the user to choose their experience level
+
+def get_experience_choice() -> str:
     exp_options = {"1": "beginner", "2": "intermediate", "3": "expert"}
 
-    while True:  # loop until a valid choice is made
+    while True:
         print("\nSelect experience level:")
         print("1. Beginner")
         print("2. Intermediate")
@@ -30,7 +31,8 @@ def get_experience_choice() -> str:  # asking the user to choose their experienc
             return exp_options[choice]
         print("Invalid selection. Please choose 1–3.")
 
-def get_positive_int(prompt: str) -> int:  # prompts for a positive integer
+
+def get_positive_int(prompt: str) -> int:
     while True:
         try:
             value = int(input(prompt).strip())
@@ -38,9 +40,10 @@ def get_positive_int(prompt: str) -> int:  # prompts for a positive integer
                 return value
         except ValueError:
             pass
-        print("Please enter a positive whole number.") 
+        print("Please enter a positive whole number.")
 
-def get_non_negative_float(prompt: str) -> float:  # prompts for a non-negative float
+
+def get_non_negative_float(prompt: str) -> float:
     while True:
         try:
             value = float(input(prompt).strip())
@@ -48,7 +51,8 @@ def get_non_negative_float(prompt: str) -> float:  # prompts for a non-negative 
                 return value
         except ValueError:
             pass
-        print("Please enter a number 0 or higher.") 
+        print("Please enter a number 0 or higher.")
+
 
 # Main program
 race = get_race_choice()
@@ -56,13 +60,18 @@ name = input("Runner name: ").strip()
 exp = get_experience_choice()
 mileage = get_non_negative_float("Current weekly mileage in km (enter 0 if unknown): ")
 
-runner = Runner(name, exp, mileage)  # create Runner object
-Weeks = get_positive_int("Number of weeks for training plan: ")
-goal = TrainingGoal(race, Weeks)
+# Correct Runner creation using the factory function
+# Create a Runner instance based on experience level
+if exp == "beginner":
+    runner = BeginnerRunner(name, mileage)
+elif exp == "intermediate":
+    runner = IntermediateRunner(name, mileage)
+else:  # expert
+    runner = ExpertRunner(name, mileage)
 
+weeks = get_positive_int("Number of weeks for training plan: ")
+goal = TrainingGoal(race, weeks)
 
-plan = TrainingPlan(runner, goal)  # create TrainingPlan object
-plan.generate()                     # generate the plan
-plan.pretty_print()                  # print the plan
- 
-print("niguek")
+plan = TrainingPlan(runner, goal)
+plan.generate()
+plan.pretty_print()
