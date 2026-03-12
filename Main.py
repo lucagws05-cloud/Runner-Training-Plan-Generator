@@ -6,112 +6,107 @@ from visualization import plot_weekly_mileage
 
 
 
-def get_race_choice() -> str:  
-   '''
-   This method asks the user to select the race distance from a list of options (5k, 10k, half marathon, full marathon).
-   Loops until the user makes a valid selection.
-   '''
-   race_options = {"1": "5k", "2": "10k", "3": "half", "4": "full"}
+def get_race_choice() -> str:   
+    '''
+    This method asks the user to select the race distance from a list of options (5k, 10k, half marathon, full marathon).
+    Loops until the user makes a valid selection.
+    '''
+    race_options = {"1": "5k", "2": "10k", "3": "half", "4": "full"}
 
-
-   while True:       
-       print("\nSelect your race:")
-       print("1. 5K")
-       print("2. 10K")
-       print("3. Half Marathon")
-       print("4. Full Marathon")
-       choice = input("Enter the number of your choice: ").strip()
-       if choice in race_options:
-           return race_options[choice]
-       print("Invalid selection. Please choose 1–4.")
-
-
-
-
-def get_experience_choice() -> str:   
-   '''
-   Asks the user to select their experience level from a list of options (beginner, intermediate, expert)
-   Loops until the user makes a valid selection.
-   '''
-  
-   exp_options = {"1": "beginner", "2": "intermediate", "3": "expert"}
-
-
-   while True:
-       print("\nSelect experience level:")
-       print("1. Beginner")
-       print("2. Intermediate")
-       print("3. Expert")
-       choice = input("Enter the number of your choice: ").strip()
-       if choice in exp_options:
-           return exp_options[choice]
-       print("Invalid selection. Please choose 1–3.")
+    while True:        
+        print("\nSelect your race:")
+        print("1. 5K")
+        print("2. 10K")
+        print("3. Half Marathon")
+        print("4. Full Marathon")
+        choice = input("Enter the number of your choice: ").strip()
+        if choice in race_options:
+            return race_options[choice]
+        print("Invalid selection. Please choose 1–4.")
 
 
 
 
-def get_positive_int(prompt: str) -> int:      
-   '''
-   Ensures the users inputs a positive integer.
-   Loops until the user makes a valid selection.
-   '''
+def get_experience_choice() -> str:    
+    '''
+    Asks the user to select their experience level from a list of options (beginner, intermediate, expert) 
+    Loops until the user makes a valid selection.
+    '''
+    
+    exp_options = {"1": "beginner", "2": "intermediate", "3": "expert"}
 
-
-   while True:
-       try:
-           value = int(input(prompt).strip())
-           if value > 0:
-               return value
-       except ValueError:
-           pass
-       print("Please enter a positive whole number.")
-
-
-
-
-def get_non_negative_float(prompt: str) -> float:  
-   '''
-   Ensures the user inputs a non-negative float (for mileage, which can be zero if unknown)
-   Loops until the user makes a valid selection.
-   '''
-  
-   while True:
-       try:
-           value = float(input(prompt).strip())
-           if value >= 0:
-               return value
-       except ValueError:
-           pass
-       print("Please enter a number 0 or higher.")
-
-
-race = get_race_choice()        #User input for race, name, experience level and current mileage
-name = input("Runner name: ").strip()
-exp = get_experience_choice()
-mileage = get_non_negative_float("Current weekly mileage in km (enter 0 if unknown): ")
+    while True:
+        print("\nSelect experience level:")
+        print("1. Beginner")
+        print("2. Intermediate")
+        print("3. Expert")
+        choice = input("Enter the number of your choice: ").strip()
+        if choice in exp_options:
+            return exp_options[choice]
+        print("Invalid selection. Please choose 1–3.")
 
 
 
 
-if exp == "beginner":       #Selects the appropriate runner class based on the user's input
-   runner = BeginnerRunner(name, mileage)
-elif exp == "intermediate":
-   runner = IntermediateRunner(name, mileage)
-else:  # expert
-   runner = ExpertRunner(name, mileage)
+def get_positive_int(prompt: str) -> int:       
+    '''
+    Ensures the users inputs a positive integer.
+    Loops until the user makes a valid selection.
+    '''
+
+    while True:
+        try:
+            value = int(input(prompt).strip())
+            if value > 0:
+                return value
+        except ValueError:
+            pass
+        print("Please enter a positive whole number.")
 
 
-weeks = get_positive_int("Number of weeks for training plan: ")     #User input for the number of weeks until the race and the goal race time in minutes  
-goal_time = get_positive_int("Goal race time in minutes: ")
 
 
-goal = TrainingGoal(race, weeks, goal_time)
+def get_non_negative_float(prompt: str) -> float:   
+    '''
+    Ensures the user inputs a non-negative float (for mileage, which can be zero if unknown)
+    Loops until the user makes a valid selection.
+    '''
+    
+    while True:
+        try:
+            value = float(input(prompt).strip())
+            if value >= 0:
+                return value
+        except ValueError:
+            pass
+        print("Please enter a number 0 or higher.")
 
 
-plan = TrainingPlan(runner, goal)       #Generates the training plan based on the user's input and displays the plan and weekly mileage progression
-plan.generate()
-plan.pretty_print()
-plot_weekly_mileage(plan)
+def main():
+    race = get_race_choice()        #User input for race, name, experience level and current mileage 
+    name = input("Runner name: ").strip()
+    exp = get_experience_choice()
+    mileage = get_non_negative_float("Current weekly mileage in km (enter 0 if unknown): ")
 
 
-plot_weekly_mileage(plan)
+    if exp == "beginner":       #Selects the appropriate runner class based on the user's input
+        runner = BeginnerRunner(name, mileage)
+    elif exp == "intermediate":
+        runner = IntermediateRunner(name, mileage)
+    else:  # expert
+        runner = ExpertRunner(name, mileage)
+
+    weeks = get_positive_int("Number of weeks for training plan: ")     #User input for the number of weeks until the race and the goal race time in minutes   
+    goal_time = get_positive_int("Goal race time in minutes: ")
+
+
+    goal = TrainingGoal(race, weeks, goal_time)
+
+    plan = TrainingPlan(runner, goal)       #Generates the training plan based on the user's input and displays the plan and weekly mileage progression
+    plan.generate()
+    print(plan.pretty_print())
+    plot_weekly_mileage(plan)
+
+
+if __name__ == "__main__":
+    main()
