@@ -93,7 +93,7 @@ def main():
         runner = BeginnerRunner(name, mileage)
     elif exp == "intermediate":
         runner = IntermediateRunner(name, mileage)
-    else:  # expert
+    else:  
         runner = ExpertRunner(name, mileage)
 
     weeks = get_positive_int("Number of weeks for training plan: ")     #User input for the number of weeks until the race and the goal race time in minutes   
