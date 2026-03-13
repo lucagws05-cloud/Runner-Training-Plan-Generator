@@ -26,7 +26,7 @@ python --version
 
 ```bsh
 git clone https://github.com/yourusername/Runner-Training-Plan-Generator.git cd Runner-Training-Plan-Generator
-```bsh
+```
 
 2.) Set up a Virtual Environment
 
@@ -51,19 +51,20 @@ Inputs are ran to program in main.py
 Customised plan is generated
 
 ## Example Outputs
-<put screenshots of example plans here>
+![alt text](<Screenshot 2026-03-12 at 17.40.25.png>)
+![alt text](<Screenshot 2026-03-12 at 17.39.26.png>)
 
 # Project Structure
 
 Runner-Training-Plan-Generator/
 │
 ├── README.md    
-├── main.py                            # Entry point of the program
-├── RUNNER.py                    # Logic for generating the training plan
-├── training_goal_race.py      # Runner data model and attributes
-├── training_plan.py               #
-├── WEEK.py                         #
-└──WORKOUT.py                  #
+├── main.py                           
+├── RUNNER.py                    
+├── training_goal_race.py      
+├── training_plan.py               
+├── WEEK.py                         
+└──WORKOUT.py                  
        
 # Contributing Guidelines
 To contribute:
